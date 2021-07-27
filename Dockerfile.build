@@ -1,0 +1,6 @@
+FROM mcr.microsoft.com/dotnet/sdk:5.0
+WORKDIR /app
+COPY MatchingNeeds.Client.csproj MatchingNeeds.Client.csproj
+RUN dotnet restore MatchingNeeds.Client.csproj
+COPY . .
+RUN dotnet publish -c Release -o /output --no-restore --nologo
